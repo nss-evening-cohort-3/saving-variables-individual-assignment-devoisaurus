@@ -60,15 +60,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAL\ExpressionRepository.cs" />
-    <Compile Include="DAL\SavingVariablesContext.cs" />
+    <Compile Include="DAL\VariablesRepository.cs" />
+    <Compile Include="DAL\VariablesContext.cs" />
     <Compile Include="Migrations\201609240626588_InitialCreate.cs" />
     <Compile Include="Migrations\201609240626588_InitialCreate.Designer.cs">
       <DependentUpon>201609240626588_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Constant.cs" />
-    <Compile Include="Models\Expression.cs" />
     <Compile Include="Models\Variable.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

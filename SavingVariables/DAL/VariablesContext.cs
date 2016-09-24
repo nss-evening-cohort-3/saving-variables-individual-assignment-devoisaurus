@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace SavingVariables.DAL
 {
-    public class SavingVariablesContext : DbContext
+    public class VariablesContext : DbContext
     {
-        public DbSet<Expression> Expressions { get; set; }
+        public virtual DbSet<Variable> Variables { get; set; }
     }
 }
