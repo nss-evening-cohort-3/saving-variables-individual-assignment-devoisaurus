@@ -42,9 +42,19 @@ namespace SavingVariables.Tests.DAL
             mock_variable_table.As<IQueryable<Variable>>().Setup(m => m.ElementType).Returns(queryable_list.ElementType);
             mock_variable_table.As<IQueryable<Variable>>().Setup(m => m.GetEnumerator()).Returns(() => queryable_list.GetEnumerator());
 
-            VariablesRepository repo = new VariablesRepository();
+            //Hey Context, return the mock_variable_table when someone calls the VariablesContext.Variables getter
+            mock_context.Setup(c => c.Variables).Returns(mock_variable_table.Object);
+
+            //Now we have our repo use the mock context for all of it's operations
+            //mock_context.Object gets the VariableContext instance contained in the mock
+            VariablesRepository repo = new VariablesRepository(mock_context.Object);
          
-            List<Variable> found_variables = repo.GetVariables();           
+            List<Variable> found_variables = repo.GetVariables();
+
+            //Assert
+            int expected_variable_count = 0;
+            int actual_variable_count = found_variables.Count;
+            Assert.AreEqual(expected_variable_count, actual_variable_count);
         }
     }
 }

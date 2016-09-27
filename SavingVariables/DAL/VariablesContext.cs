@@ -10,6 +10,7 @@ namespace SavingVariables.DAL
 {
     public class VariablesContext : DbContext
     {
+        //virtual keyword allows passing in of mock data
         public virtual DbSet<Variable> Variables { get; set; }
     }
 }
