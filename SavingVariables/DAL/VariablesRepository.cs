@@ -25,5 +25,11 @@ namespace SavingVariables.DAL
         {
             return Context.Variables.ToList();
         }
+
+        public void AddVariable(Variable my_variable)
+        {
+            Context.Variables.Add(my_variable);
+            Context.SaveChanges();
+        }
     }
 }
